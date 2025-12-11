@@ -161,58 +161,73 @@
         .info-row { margin-bottom: 10px; }
         .map-box { height: 200px; background: #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #555; }
 
-        /* =========================================
-           [모바일 반응형 스타일] 
-           ========================================= */
-        @media (max-width: 768px) {
-            /* 헤더 & 메뉴 */
-            header { padding: 15px 20px; }
-            .menu-toggle { display: block; }
-            .nav {
-                position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
-                background: white; padding-top: 80px; transition: 0.4s;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            }
-            .nav.active { right: 0; }
-            .nav ul { flex-direction: column; gap: 0; }
-            .nav li { 
-                padding: 20px 30px; border-bottom: 1px solid #eee; 
-                font-size: 18px; color: #333; font-weight: 700;
-            }
+/* =========================================
+   [모바일 반응형 스타일] 
+   ========================================= */
+@media (max-width: 768px) {
+    /* 헤더 & 메뉴 */
+    header { padding: 15px 20px; }
+    .menu-toggle { display: block; }
+    .nav {
+        position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+        background: white; padding-top: 80px; transition: 0.4s;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+    .nav.active { right: 0; }
+    .nav ul { flex-direction: column; gap: 0; }
+    .nav li { 
+        padding: 20px 30px; border-bottom: 1px solid #eee; 
+        font-size: 18px; color: #333; font-weight: 700;
+    }
 
-            /* 섹션 공통 */
-            section { padding: 80px 20px !important; }
-            .section-header h2 { font-size: 28px; }
-            .section-header p { font-size: 15px; br { display: none; } }
+    /* ✅ 1페이지 메인: 모바일에서는 영상만, 16:9 비율 유지 */
+    .section-hero {
+        height: 80vh;               /* 100vh → 살짝 줄여서 덜 답답하게 */
+    }
+    .bg-video {
+        min-width: 0;
+        min-height: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;        /* 전체 프레임 보이게 (약간 레터박스 느낌) */
+        background: #000;           /* 남는 부분은 검정으로 */
+    }
+    .bg-fallback {
+        display: none;              /* main.png는 모바일에서 안 씀 */
+    }
+    .hero-content h1 { font-size: 32px; letter-spacing: 0; }
+    .hero-slogan { font-size: 16px; margin-bottom: 30px; }
+    .btn { padding: 12px 25px; font-size: 14px; }
+    .philosophy-text { width: 90%; font-size: 12px; bottom: 20px; }
 
-            /* 1페이지 메인 */
-            .hero-content h1 { font-size: 32px; letter-spacing: 0; }
-            .hero-slogan { font-size: 16px; margin-bottom: 30px; }
-            .btn { padding: 12px 25px; font-size: 14px; }
-            .philosophy-text { width: 90%; font-size: 12px; bottom: 20px; }
+    /* 섹션 공통 */
+    section { padding: 80px 20px !important; }
+    .section-header h2 { font-size: 28px; }
+    .section-header p { font-size: 15px; br { display: none; } }
 
-            /* 2페이지 고민 */
-            .concern-grid { grid-template-columns: 1fr; gap: 15px; }
-            .concern-card { padding: 30px 20px; text-align: left; }
-            .concern-card h3 { font-size: 18px; }
-            .promise-items { flex-direction: column; gap: 15px; text-align: left; }
-            .promise-item { font-size: 15px; }
+    /* 2페이지 고민 */
+    .concern-grid { grid-template-columns: 1fr; gap: 15px; }
+    .concern-card { padding: 30px 20px; text-align: left; }
+    .concern-card h3 { font-size: 18px; }
+    .promise-items { flex-direction: column; gap: 15px; text-align: left; }
+    .promise-item { font-size: 15px; }
 
-            /* 3페이지 시설 */
-            .facility-video { height: 250px; }
-            .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .gallery-item { height: 200px; }
+    /* 3페이지 시설 */
+    .facility-video { height: 250px; }
+    .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .gallery-item { height: 200px; }
 
-            /* 4페이지 의료진 */
-            .doctor-profile { flex-direction: column; gap: 30px; margin-bottom: 60px; }
-            .doctor-img { width: 100%; height: 400px; }
-            .doctor-name { font-size: 28px; margin-bottom: 20px; }
-            .philosophy-box { margin-top: 20px; padding: 20px; }
-            .philosophy-box p { font-size: 15px; }
+    /* 4페이지 의료진 */
+    .doctor-profile { flex-direction: column; gap: 30px; margin-bottom: 60px; }
+    .doctor-img { width: 100%; height: 400px; }
+    .doctor-name { font-size: 28px; margin-bottom: 20px; }
+    .philosophy-box { margin-top: 20px; padding: 20px; }
+    .philosophy-box p { font-size: 15px; }
 
-            /* 푸터 */
-            .footer-content { grid-template-columns: 1fr; gap: 30px; }
-        }
+    /* 푸터 */
+    .footer-content { grid-template-columns: 1fr; gap: 30px; }
+}
+
     </style>
 </head>
 <body>
